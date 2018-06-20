@@ -33,11 +33,33 @@
     echo "The time is " . date('h:i:sa');
     echo "<br><br>";
     echo "My birthday was on " . date("d-m-Y h:i:sa",$madeTime);
+    echo "<br><br>";
+
+    //reading files
+    //echo readfile("ranText.txt");
+
+    $myfile = fopen("ranText.txt", "r") or die("Unable to open file");
+    echo fread($myfile, filesize("ranText.txt"));
+    fclose($myfile);
+
+    $newfile = fopen("myText.txt", "w") or die("Unable to open file!");
+    $txt = "Nero\n";
+    fwrite($newfile, $txt);
+    $txt = "Dante\n";
+    fwrite($newfile, $txt);
+    $txt = "Vergil\n";
+    fwrite($newfile, $txt);
+    fclose($newfile);
 
     
     ?>
 
-    <div></div>
+    <div>
+        <h1>Welcome to the home page!</h1>
+        <p>Some random text here</p>
+        <p>And a dash of other random text here</p>
+        <?php include 'testReq.php' ?>
+    </div>
     
 </body>
 </html>
