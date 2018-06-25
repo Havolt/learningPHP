@@ -12,11 +12,13 @@
     
         $username = "sconnor";
         $password = "fatethatwemake";
+        $userFound = false;
 
         $userInfo = array("zsmith" => "loldunno", "jc" => "bionicman", "jenson" => "ididntaskforthis", "sconnor" => "fatethatwemake");
 
         foreach($userInfo as $userKey => $userVal){
             if($username == $userKey){
+                $userFound = true;
                 if($password == $userVal){
                     echo "Welcome";
                 }else{
@@ -25,6 +27,10 @@
             }
         }
     
+        if(!$userFound){
+            echo "Try Again";
+        }
+
     ?>
 
     
